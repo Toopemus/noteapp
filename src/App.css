@@ -1,12 +1,13 @@
-/*.sisalto {
-  max-width: 75%;
+.sisalto {
+  max-width: 95%;
   margin-left: auto;
   margin-right: auto;
-}*/
+}
 
 .addnote {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   min-height: 200px;
   max-width: 400px;
@@ -14,8 +15,20 @@
   border-radius: 5px;
 
   border-style: solid;
-  border-color: #AAAAAA;
+  border-color: #d5d5d5;
   border-width: 1px;
+}
+
+.addheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addfooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 textarea {
@@ -25,7 +38,8 @@ textarea {
 .notelist {
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
-  grid-gap: 10px;
+  grid-gap: 15px;
+  justify-content: center;
 }
 
 .note {
@@ -38,11 +52,94 @@ textarea {
   border-radius: 5px;
 
   border-style: solid;
-  border-color: #AAAAAA;
+  border-color: #d5d5d5;
   border-width: 1px;
+}
+
+.note:hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.notetitle {
+  margin-block: 0px;
+  font-size: 1.5em;
+}
+
+.remove {
+  display: none;
+  opacity: 50%;
+  background-color: #ffffff;
+  border: none;
+  width: 28px;
+  font-size: 1em;
+}
+
+.note:hover .notebody .uprow .remove {
+  display: block;
+}
+
+.remove:hover {
+  opacity: 100%;
+  background-color: #d5d5d5;
+  border-radius: 50%;
 }
 
 .uprow {
   display: flex;
   place-content: space-between;
+}
+
+.calendarcontainer {
+  position: absolute;
+  width: 225px;
+  min-height: 300px;
+
+  background-color: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.monthpicker {
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.monthbutton {
+  background-color: #ffffff;
+  border: none;
+  width: 31px;
+  font-size: 1em;
+  margin: 10px;
+}
+
+.monthbutton:hover {
+  background-color: #d5d5d5;
+  border-radius: 50%;
+}
+
+.weekdayindicator {
+  text-align: center;
+  height: 29px;
+}
+
+.calendardays {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+
+  padding: 10px;
+}
+
+.day {
+  height: 29px;
+  background-color: #ffffff;
+  border: none;
+}
+
+.day:hover {
+  background-color: #7d318d;
+  color: #ffffff;
+  border-radius: 50%;
 }

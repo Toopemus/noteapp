@@ -5,8 +5,8 @@ function Note({id, header, text, handleDeleteNote}) {
         <div className='note'>
             <div className='notebody'>
                 <div className='uprow'>
-                    <h2>{header}</h2>
-                    <button className='remove' onClick={() => handleDeleteNote(id)}>x</button>
+                    <span className='notetitle'>{header}</span>
+                    <button className='remove' onClick={() => handleDeleteNote(id)}>X</button>
                 </div>
 
                 <p>{text}</p>
