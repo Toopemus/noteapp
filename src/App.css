@@ -1,5 +1,5 @@
 .sisalto {
-  max-width: 95%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -13,6 +13,8 @@
   max-width: 400px;
   padding: 10px;
   border-radius: 5px;
+  margin-left: 900px;
+  margin-bottom: 125px;
 
   border-style: solid;
   border-color: #d5d5d5;
@@ -142,4 +144,78 @@ textarea {
   background-color: #7d318d;
   color: #ffffff;
   border-radius: 50%;
+}
+
+.side_menu {
+  position: fixed;
+  background: rgb(255, 255, 255);
+  width: 250px;
+  height: 100%;
+  border-right: 1px solid black;
+  transition: width .2s ease-in;
+}
+
+.side_menu .logo {
+  width: 40px;
+  height: 40px;
+  padding-top: 30px;
+  margin-left: -20px;
+}
+
+.top-icon {
+  margin-left: 40px;
+}
+
+.side_menu .menu_items li a{
+  margin-left: 15px;
+  position: fixed;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.side_menu .menu_items li a:hover{
+  color: orange;
+  font-weight: 800;
+}
+
+.side_menu.inactive{
+  width: 80px;
+}
+
+.side_menu.inactive li a {
+  font-size: 0;
+}
+
+.side_menu.inactive .logo:hover {
+  color: orange;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.menu_items li {
+  margin-top: 10px;
+}
+
+.muistutus_sivu h1{
+  margin-left: 500px;
+}
+
+
+.roskakori_sivu h1{
+  margin-left: 500px;
+}
+
+.Tunniste_sivu h1{
+  margin-left: 500px;
+}
+
+.asetukset_sivu h1{
+  margin-left: 500px;
+}
+
+.menu_items a {
+  text-decoration: none;
+  font-weight: bold;
 }
