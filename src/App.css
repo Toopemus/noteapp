@@ -156,8 +156,8 @@ textarea {
 }
 
 .side_menu .logo {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   padding-top: 30px;
   margin-left: -20px;
 }
@@ -173,13 +173,13 @@ textarea {
   font-weight: 600;
 }
 
-.side_menu .menu_items li a:hover{
+.side_menu .menu_items li a:not(.active):hover{
   color: orange;
   font-weight: 800;
 }
 
 .side_menu.inactive{
-  width: 80px;
+  width: 85px;
 }
 
 .side_menu.inactive li a {
@@ -215,7 +215,72 @@ ul {
   margin-left: 500px;
 }
 
-.menu_items a {
-  text-decoration: none;
-  font-weight: bold;
+/*side menu rules start*/
+.side_menu .menu_items .menu_logo_item {
+  width: 45px;
+  height: 45px;
+  margin-left: -35px;
+  margin-top: -10px;
 }
+
+
+.side_menu .menu_items .text_item {
+  margin-top: -37px;
+}
+
+.side_menu .menu_items .menu_logo_item_two {
+  width: 45px;
+  height: 45px;
+  margin-left: -35px;
+  margin-top: 70px;
+}
+
+.side_menu .menu_items .text_item_two {
+  margin-top: 42px;
+}
+
+.side_menu .menu_items .menu_logo_item_three {
+  width: 45px;
+  height: 45px;
+  margin-left: -35px;
+  margin-top: 150px;
+}
+
+.side_menu .menu_items .text_item_three {
+  margin-top: 122px;
+}
+
+.side_menu .menu_items .menu_logo_item_four {
+  width: 45px;
+  height: 45px;
+  margin-left: -35px;
+  margin-top: 230px;
+}
+
+.side_menu .menu_items .text_item_four {
+  margin-top: 204px;
+}
+
+.side_menu .menu_items .menu_logo_item_five {
+  width: 45px;
+  height: 45px;
+  margin-left: -35px;
+  margin-top: 320px;
+}
+
+.side_menu .menu_items .text_item_five {
+  margin-top: 295px;
+}
+
+.side_menu .menu_items a {
+  color: black;
+}
+
+.side_menu .menu_items .active {
+  color: rgb(68, 204, 68);
+}
+
+.side_menu .menu_items .not-active {
+  color: black;
+}
+/*side menu rules end*/
