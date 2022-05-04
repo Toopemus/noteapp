@@ -13,7 +13,7 @@
   max-width: 400px;
   padding: 10px;
   border-radius: 5px;
-  margin-left: 900px;
+  margin-left: 500px;
   margin-bottom: 125px;
 
   border-style: solid;
@@ -56,6 +56,12 @@ textarea {
   border-style: solid;
   border-color: #d5d5d5;
   border-width: 1px;
+}
+
+.notefooter {
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
 }
 
 .note:hover {
@@ -120,6 +126,11 @@ textarea {
 .monthbutton:hover {
   background-color: #d5d5d5;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.monthbutton:disabled {
+  background: none;
 }
 
 .weekdayindicator {
@@ -138,12 +149,56 @@ textarea {
   height: 29px;
   background-color: #ffffff;
   border: none;
+  cursor: pointer;
+}
+
+.currentday {
+  font-weight: bold;
 }
 
 .day:hover {
   background-color: #7d318d;
   color: #ffffff;
   border-radius: 50%;
+}
+
+.day:disabled {
+  background: none;
+  cursor: default;
+  color: rgba(16, 16, 16, 0.3);
+}
+
+/* Kikkailua jotta napit ei välky */
+.day:hover:after {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  padding: 12px;
+  margin-top: -7px;
+  margin-left: -20px;
+}
+
+.calendartime {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  margin-left: 16px;
+}
+
+.timelabel {
+  padding-right: 5px;
+}
+
+.timebox {
+  text-align: center;
+}
+
+.calendarsubmit {
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+  margin: 16px;
 }
 
 .side_menu {

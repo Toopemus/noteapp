@@ -6,7 +6,14 @@ function Notelist({notes, handleDeleteNote}) {
     return(
         <div className='notelist'>
             {notes.map((note) => (
-            <Note id={note.id} header={note.header} text={note.text} handleDeleteNote = {handleDeleteNote} />
+                <Note
+                    key={note.id}
+                    id={note.id}
+                    header={note.header}
+                    text={note.text}
+                    reminder={note.reminder}
+                    handleDeleteNote = {handleDeleteNote}
+                />
             ))}
         </div>
     );

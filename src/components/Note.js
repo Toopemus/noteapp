@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Note({id, header, text, handleDeleteNote}) {
+function Note({id, header, text, reminder, handleDeleteNote}) {
     return (
         <div className='note'>
             <div className='notebody'>
@@ -12,7 +12,8 @@ function Note({id, header, text, handleDeleteNote}) {
                 <p>{text}</p>
             </div>
             <div className='notefooter'>
-                <p>Tunniste placeholder</p>
+                <div>Tunniste</div>
+                <div>{!reminder ? '' : `${reminder.getDate()}.${reminder.getMonth()}.${reminder.getFullYear()} ${reminder.getHours()}:${reminder.getMinutes()}`}</div>
             </div>
         </div>
     );

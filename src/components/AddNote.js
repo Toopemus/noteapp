@@ -5,6 +5,7 @@ import Calendar from './Calendar';
 function AddNote({handleAddNote}) {
     const [header, setHeader] = useState('');
     const [text, setText] = useState('');
+    const [reminder, setReminder] = useState('');
     const [showCal, setShowCal] = useState(false);
 
     const handleHeader = (event) => {
@@ -20,14 +21,20 @@ function AddNote({handleAddNote}) {
         //TODO: Ilmoita käyttäjälle tyhjästä muistiinpanosta
         //Tarkistetaan ettei yritetä lisätä tyhjää muistiinpanoa
         if(header.trim().length > 0 && text.trim().length > 0) {
-            handleAddNote(header, text);
+            handleAddNote(header, text, reminder);
             setHeader('');
             setText('');
+            setReminder('');
         }
     };
 
     const showCalendar = () => {
         setShowCal(!showCal);
+    }
+
+    const addReminder = (reminder) => {
+        setReminder(reminder);
+        showCalendar();
     }
 
     return(
@@ -41,9 +48,9 @@ function AddNote({handleAddNote}) {
                         onChange={handleHeader}
                     ></textarea>
                         <div className='reminder'>
-                        <button onClick={showCalendar}>Aseta aika</button>
+                        <button onClick={showCalendar}>{!reminder ? 'Aseta aika' : `${reminder.getDate()}.${reminder.getMonth()}.${reminder.getFullYear()} ${reminder.getHours()}:${reminder.getMinutes()}`}</button>
                         <div className='calendarpositioner'>
-                            {showCal && <Calendar/>}
+                            {showCal && <Calendar handleShowCalendar={showCalendar} addReminder={addReminder}/>}
                         </div>
                     </div>
                 </div>

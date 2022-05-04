@@ -9,25 +9,29 @@ function Main() {
         {
           id: nanoid(),
           header: 'otsikko1',
-          text: 'teksti1'
+          text: 'teksti1',
+          reminder: ''
         },
         {
           id: nanoid(),
           header: 'otsikko2',
-          text: 'teksti2'
+          text: 'teksti2',
+          reminder: ''
         },
         {
           id: nanoid(),
           header: 'otsikko3',
-          text: 'teksti3'
+          text: 'teksti3',
+          reminder: ''
         }
     ]);
 
-    const addNote = (header, text) => {
+    const addNote = (header, text, reminder) => {
         const newNote = {
           id: nanoid(),
           header: header,
-          text: text
+          text: text,
+          reminder: reminder
         }
         const newNotelist = [...notes, newNote];
 
