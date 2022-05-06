@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 import Notelist from './Notelist';
-import AddNote from './AddNote';
 
 function Main() {
     const [notes, setNotes] = useState([
@@ -10,19 +9,31 @@ function Main() {
           id: nanoid(),
           header: 'otsikko1',
           text: 'teksti1',
-          reminder: ''
+          reminder: '',
+          tag: {
+            color: 'red',
+            name: 'Koti'
+          }
         },
         {
           id: nanoid(),
           header: 'otsikko2',
           text: 'teksti2',
-          reminder: ''
+          reminder: '',
+          tag: {
+            color: 'green',
+            name: 'Harrastus'
+          }
         },
         {
           id: nanoid(),
           header: 'otsikko3',
           text: 'teksti3',
-          reminder: ''
+          reminder: '',
+          tag: {
+            color: 'blue',
+            name: 'Työ'
+          }
         }
     ]);
 
@@ -31,7 +42,11 @@ function Main() {
           id: nanoid(),
           header: header,
           text: text,
-          reminder: reminder
+          reminder: reminder,
+          tag: {
+            color: '',
+            name: ''
+          }
         }
         const newNotelist = [...notes, newNote];
 
@@ -46,8 +61,7 @@ function Main() {
 
     return (
         <div className='sisalto'>
-            <AddNote handleAddNote = {addNote} />
-            <Notelist notes={notes} handleDeleteNote = {deleteNote} />
+            <Notelist notes={notes} handleDeleteNote = {deleteNote} handleAddNote = {addNote}/>
         </div>
     );
 }

@@ -4,6 +4,7 @@ import path from 'path';
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from "react-router-dom/server";
 
 import App from '../src/App';
 
@@ -23,7 +24,7 @@ app.use('^/$', (req, res, next) => {
         return res.send(
             data.replace(
                 '<div id="root"></div>',
-                `<div id="root">${ReactDOMServer.renderToString(<App />)}</div>`
+                `<div id="root">${ReactDOMServer.renderToString(<StaticRouter location={req.url}><App /></StaticRouter>)}</div>`
             )
         );
     });
