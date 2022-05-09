@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 
 import Calendar from './Calendar';
+import AddTag from './AddTag';
 
-function AddNote({handleAddNote}) {
+function AddNote({handleAddNote, notes}) {
     const [header, setHeader] = useState('');
     const [text, setText] = useState('');
     const [reminder, setReminder] = useState('');
+    const [tag, setTag] = useState({color: '', name: ''});
     const [showCal, setShowCal] = useState(false);
+    const [showTag, setShowTag] = useState(false);
 
     const handleHeader = (event) => {
         setHeader(event.target.value);
@@ -21,10 +24,11 @@ function AddNote({handleAddNote}) {
         //TODO: Ilmoita käyttäjälle tyhjästä muistiinpanosta
         //Tarkistetaan ettei yritetä lisätä tyhjää muistiinpanoa
         if(header.trim().length > 0 && text.trim().length > 0) {
-            handleAddNote(header, text, reminder);
+            handleAddNote(header, text, reminder, tag);
             setHeader('');
             setText('');
             setReminder('');
+            setTag({color: '', name: ''});
         }
     };
 
@@ -32,9 +36,18 @@ function AddNote({handleAddNote}) {
         setShowCal(!showCal);
     }
 
+    const showAddTag = () => {
+        setShowTag(!showTag);
+    }
+
     const addReminder = (reminder) => {
         setReminder(reminder);
         showCalendar();
+    }
+
+    const addTag = (tag) => {
+        setTag(tag);
+        showAddTag();
     }
 
     return(
@@ -65,10 +78,15 @@ function AddNote({handleAddNote}) {
                 </div>
             </div>
             <div className='addfooter'>
-                <textarea
-                    rows='1'
-                    placeholder='Lisää tunniste...'
-                ></textarea>
+                <div>
+                    <div onClick={showAddTag} className='addtagbutton'>
+                        <div className={tag.color ? tag.color : 'emptycolor'}></div>
+                        <div>{tag.name ? tag.name : 'Lisää tunniste'}</div>
+                    </div>
+                    <div className='addtagpositioner'>
+                        {showTag && <AddTag notes={notes} showAddTag={showAddTag} addTag={addTag} />}
+                    </div>
+                </div>
                 <button className='save' onClick={save}>Lisää</button>
             </div>
         </div>

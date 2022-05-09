@@ -12,7 +12,7 @@ function Note({id, header, text, reminder, tag, handleDeleteNote}) {
                 <p>{text}</p>
             </div>
             <div className='notefooter'>
-                <div>
+                <div className='notetag'>
                     <div className={tag.color}></div>
                     <div>{tag.name}</div>
                 </div>

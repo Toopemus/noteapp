@@ -87,6 +87,7 @@ function Calendar({handleShowCalendar, addReminder}) {
         });
     }
 
+    //Display last month
     const lastMonth = () => {
         if(displayMonth === 0) {
             setDisplayYear(displayYear - 1);
@@ -98,6 +99,7 @@ function Calendar({handleShowCalendar, addReminder}) {
         }
     }
 
+    //Display next month
     const nextMonth = () => {
         if(displayMonth === 11) {
             setDisplayYear(displayYear + 1);

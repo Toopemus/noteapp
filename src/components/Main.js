@@ -37,15 +37,15 @@ function Main() {
         }
     ]);
 
-    const addNote = (header, text, reminder) => {
+    const addNote = (header, text, reminder, tag) => {
         const newNote = {
           id: nanoid(),
           header: header,
           text: text,
           reminder: reminder,
           tag: {
-            color: '',
-            name: ''
+            color: tag.color,
+            name: tag.name
           }
         }
         const newNotelist = [...notes, newNote];
