@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 
 function AddTag({notes, showAddTag, addTag}) {
-    const [newTagSelected, setNewTagSelected] = useState(false);
     const [displayColorPicker, setDisplayColorPicker] = useState(false);
     const [tagNew, setTagNew] = useState({color: '', name: ''});
 
@@ -15,9 +14,6 @@ function AddTag({notes, showAddTag, addTag}) {
         showAddTag();
     }
 
-    const newTag = () => {
-        setNewTagSelected(true);
-    }
 
     const showColorPicker = () => {
         setDisplayColorPicker(true);
@@ -48,7 +44,7 @@ function AddTag({notes, showAddTag, addTag}) {
                         <div>{tag.name}</div>
                     </li>
                 ))}
-                <li className='tagcontainer' onClick={newTag} tabIndex={100}>
+                <li className='tagcontainer' tabIndex={100}>
                     <div>
                         <div className={tagNew.color ? tagNew.color:'emptycolor'} onClick={showColorPicker}></div>
                         <div className='colorpickerpositioner'>

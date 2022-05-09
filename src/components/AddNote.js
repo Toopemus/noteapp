@@ -24,7 +24,7 @@ function AddNote({handleAddNote, notes}) {
         //TODO: Ilmoita käyttäjälle tyhjästä muistiinpanosta
         //Tarkistetaan ettei yritetä lisätä tyhjää muistiinpanoa
         if(header.trim().length > 0 && text.trim().length > 0) {
-            handleAddNote(header, text, reminder, tag);
+            handleAddNote(header, text, (reminder ? reminder.toJSON() : ''), tag);
             setHeader('');
             setText('');
             setReminder('');

@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path='/' element={<><Menu/><Main/></>}/>
+        <Route exact path='/' element={<><Menu/><Main filterNotes={'muistiinpanot'}/></>}/>
         <Route exact path='/muistutus' element={< Muistutus />}/>
         <Route exact path='/tunnisteet' element={< Tunnisteet />}/>
         <Route exact path='/roskakori' element={< Roskakori />}/>

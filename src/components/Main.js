@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 
 import Notelist from './Notelist';
 
-function Main() {
+function Main({filterNotes}) {
     const [notes, setNotes] = useState([
         {
           id: nanoid(),
@@ -37,6 +37,18 @@ function Main() {
         }
     ]);
 
+    useEffect(() => {
+      const savedNotes = JSON.parse(localStorage.getItem('note-app-data'));
+
+      if(savedNotes) {
+        setNotes(savedNotes);
+      }
+    }, []);
+
+    useEffect(() => {
+      localStorage.setItem('note-app-data', JSON.stringify(notes));
+    }, [notes]);
+
     const addNote = (header, text, reminder, tag) => {
         const newNote = {
           id: nanoid(),
@@ -61,7 +73,7 @@ function Main() {
 
     return (
         <div className='sisalto'>
-            <Notelist notes={notes} handleDeleteNote = {deleteNote} handleAddNote = {addNote}/>
+            <Notelist notes={notes} handleDeleteNote = {deleteNote} handleAddNote = {addNote} filterNotes = {filterNotes}/>
         </div>
     );
 }

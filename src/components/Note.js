@@ -1,6 +1,8 @@
 import React from 'react';
 
 function Note({id, header, text, reminder, tag, handleDeleteNote}) {
+    const parsedReminder = new Date(reminder);
+
     return (
         <div className='note'>
             <div className='notebody'>
@@ -16,7 +18,7 @@ function Note({id, header, text, reminder, tag, handleDeleteNote}) {
                     <div className={tag.color}></div>
                     <div>{tag.name}</div>
                 </div>
-                <div>{!reminder ? '' : `${reminder.getDate()}.${reminder.getMonth()}.${reminder.getFullYear()} ${reminder.getHours()}:${reminder.getMinutes()}`}</div>
+                <div>{!reminder ? '' : `${parsedReminder.getDate()}.${parsedReminder.getMonth()}.${parsedReminder.getFullYear()} ${parsedReminder.getHours()}:${parsedReminder.getMinutes()}`}</div>
             </div>
         </div>
     );

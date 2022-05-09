@@ -1,11 +1,12 @@
 import React from 'react';
 import Menu from '../components/Menu';
+import Main from '../components/Main';
 
 function Muistutus() {
     return (  
         <div className="muistutus_sivu">
             <Menu />
-            <h1>Muistutus osio!</h1>
+            <Main filterNotes={'muistutus'}/>
         </div>
     );
 }
