@@ -457,3 +457,43 @@ ul {
   color: black;
 }
 /*side menu rules end*/
+
+/*Asetukset page*/
+.asetukset_sivu .asetukset_form {
+  display: table;
+}
+
+.asetukset_sivu .email_form form label {
+  text-align: center;
+  display: block;
+  position:absolute;
+  margin-top: 15px;
+  margin-left: 830px;
+}
+
+.asetukset_sivu .email_form form .t {
+  display: table-cell;
+  width: 100%;
+}
+
+.asetukset_sivu .email_form form .t input{
+  display: table-cell;
+  width: 25%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid black;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  margin-left: 960px;
+}
+
+.asetukset_sivu .email_form .btn {
+  position:absolute;
+  color: black;
+  padding: 10px;
+  border-radius: 12px;
+  cursor:pointer;
+  margin-left: 25px;
+  margin-top: 6px;
+}
