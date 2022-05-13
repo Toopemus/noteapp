@@ -39,34 +39,36 @@ class Asetukset extends React.Component {
     render() {
         return (  
             <div className="asetukset_sivu">
-                <Menu />
+                <Menu notes={this.props.notes}/>
                 <h1>Asetukset osio!</h1>
+                <div className='sisalto'>
                     <div className="email_form">
-                    <form>
-                        <label>Email Address:</label>
-                        <div class="t">
-                            <input type="text" 
-                                required 
-                                placeholder="Laita sähköpostiosoitteesi ja paina Enter"
-                            />
-                            <Button variant="contained" class="btn">Enter</Button>
-                        </div>
-                    </form>
-                </div>
-                <div className="time_format_form">
-                    <Autocomplete
-                        onChange={(event, newValue) => {
-                            this.updateState_Value(newValue);
-                        }}
-                        inputValue={this.inputValue}
-                        onInputChange={(event, newInputValue) => {
-                            this.updateState_InputValue(newInputValue);
-                        }}
-                        id="time_format_section"
-                        options={options}
-                        sx={{ width: 300, marginLeft: 120, marginTop: 3 }}
-                        renderInput={(params) => <TextField {...params} label="Aikaformaatti" />}
-                    />
+                        <form>
+                            <div class="t">
+                                <label>Email Address:</label>
+                                <input type="text" 
+                                    required 
+                                    placeholder="Laita sähköpostiosoitteesi ja paina Enter"
+                                />
+                                <Button variant="contained" class="btn">Enter</Button>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="time_format_form">
+                        <Autocomplete
+                            onChange={(event, newValue) => {
+                                this.updateState_Value(newValue);
+                            }}
+                            inputValue={this.inputValue}
+                            onInputChange={(event, newInputValue) => {
+                                this.updateState_InputValue(newInputValue);
+                            }}
+                            id="time_format_section"
+                            options={options}
+                            sx={{ width: 300, marginLeft: 40, marginTop: 3 }}
+                            renderInput={(params) => <TextField {...params} label="Aikaformaatti" />}
+                        />
+                    </div>
                 </div>
             </div>
         );

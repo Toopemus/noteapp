@@ -1,10 +1,10 @@
 import React from 'react';
 import Menu from '../components/Menu';
 
-function Tunnisteet() {
+function Tunnisteet({notes}) {
     return (  
         <div className="Tunniste_sivu">
-            <Menu />
+            <Menu notes={notes}/>
             <h1>Tunniste osio!</h1>
         </div>
     );

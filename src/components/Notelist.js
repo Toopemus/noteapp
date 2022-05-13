@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Note from './Note';
 
 import AddNote from './AddNote';
 
 //Muistiinpanolista
-function Notelist({notes, handleDeleteNote, handleAddNote, filterNotes}) {
+function Notelist({notes, handleDeleteNote, handleAddNote, filterNotes, handleUpdateNote}) {
+    const [displayAddNote, setDisplayAddNote] = useState(false);
 
     const renderSwitch = () => {
         switch(filterNotes) {
@@ -18,6 +19,7 @@ function Notelist({notes, handleDeleteNote, handleAddNote, filterNotes}) {
                         reminder={note.reminder}
                         tag={note.tag}
                         handleDeleteNote = {handleDeleteNote}
+                        handleUpdateNote = {handleUpdateNote}
                     />
                 ));
             case 'muistutus':
@@ -30,16 +32,33 @@ function Notelist({notes, handleDeleteNote, handleAddNote, filterNotes}) {
                         reminder={note.reminder}
                         tag={note.tag}
                         handleDeleteNote = {handleDeleteNote}
+                        handleUpdateNote = {handleUpdateNote}
                     />
                 ));
             default:
-                return 'poop';
+                return notes.filter((note) => note.tag.tagid === filterNotes).map((note) => (
+                    <Note
+                        key={note.id}
+                        id={note.id}
+                        header={note.header}
+                        text={note.text}
+                        reminder={note.reminder}
+                        tag={note.tag}
+                        handleDeleteNote = {handleDeleteNote}
+                        handleUpdateNote = {handleUpdateNote}
+                    />
+                ));
         }
+    }
+
+    const toggleAddNote = () => {
+        setDisplayAddNote(!displayAddNote);
     }
 
     return(
         <div>
-            <AddNote handleAddNote = {handleAddNote} notes={notes} />
+            {!displayAddNote && <div className='addnotebutton' onClick={toggleAddNote}>Luo uusi muistiinpano...</div>}
+            {displayAddNote && <AddNote handleAddNote = {handleAddNote} notes={notes} toggleAddNote={toggleAddNote} />}
             <div className='notelist'>
                 {renderSwitch()}
             </div>

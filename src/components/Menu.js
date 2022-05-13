@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import { BiMenu, BiBell, BiTrash } from 'react-icons/bi'
+import React, { useState } from 'react';
+import { BiMenu, BiBell, BiTrash, BiZoomIn } from 'react-icons/bi'
 import { MdOutlineStickyNote2 } from 'react-icons/md'
 import { GoArrowRight } from "react-icons/go"
 import { FiSettings } from 'react-icons/fi'
 import { NavLink } from "react-router-dom";
 
-function Menu(props) {
+function Menu({notes}) {
     const [inactive, setInactive] = useState(false);
+
+    const tags = [...new Map(notes.map(note =>
+        [note.tag['name'], note.tag])).values()];
 
     const toggleClass = () => {
         setInactive(!inactive);
@@ -24,34 +27,54 @@ function Menu(props) {
                 < BiMenu className='logo' />
             </div>
             <ul class="menu_items">
-                <li>
+                <li className='menuitem'>
                     <NavLink exact to="/" style={navLinkStyling}>
-                        <MdOutlineStickyNote2 className='menu_logo_item'/>
-                        <a className='text_item'>Muistiinpanot</a>
+                        <div className='notetag'>
+                            <MdOutlineStickyNote2 className='logoitem'/>
+                            Muistiinpanot
+                        </div>
                     </NavLink>
                 </li>
-                <li>
+                <li className='menuitem'>
                     <NavLink exact to="/muistutus" style={navLinkStyling}>
-                        <BiBell className='menu_logo_item_two'/>
-                        <a className='text_item_two'>Muistutus</a>
+                        <div className='notetag'>
+                            <BiBell className='logoitem'/>
+                            Muistutus
+                        </div>
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink exact to="/tunnisteet" style={navLinkStyling}>
-                        <GoArrowRight className='menu_logo_item_three'/>
-                        <a className='text_item_three'>Tunnisteet</a>
-                    </NavLink>
+                <li className='menuitem'>
+                    <div className={navLinkStyling}>
+                        <div className={inactive ? 'notetag_inactive notetag': 'notetag'}>
+                            <GoArrowRight className='logoitem'/>
+                            Tunnisteet
+                        </div>
+                    </div>
                 </li>
-                <li>
+                {tags.map((tag) => (
+                    <li className='menutagitem' key={tag.tagid}>
+                        <NavLink to={`/tunnisteet/${tag.tagid}`} style={navLinkStyling}>
+                            <div className='notetag'>
+                                <div className={tag.color}></div>
+                                {tag.name}
+                            </div>
+                        </NavLink>
+                    </li>
+                ))}
+                <li className='menuitem'>
                     <NavLink exact to="/roskakori" style={navLinkStyling}>
-                        <BiTrash className='menu_logo_item_four'/>
-                        <a className='text_item_four'>Roskakori</a>
+                        <div className='notetag'>
+                            <BiTrash className='logoitem'/>
+                            Roskakori
+                        </div>
                     </NavLink>
                 </li>
-                <li>
+                <li className='menuitem'>
                     <NavLink exact to="/asetukset" style={navLinkStyling}>
-                        <FiSettings className='menu_logo_item_five'/>
-                        <a className='text_item_five'>Asetukset</a>
+                        <div className='notetag'>
+                            <FiSettings className='logoitem'/>
+                            Asetukset
+                        </div>
                     </NavLink>
                 </li>
             </ul>

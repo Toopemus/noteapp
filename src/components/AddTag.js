@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 
 function AddTag({notes, showAddTag, addTag}) {
     const [displayColorPicker, setDisplayColorPicker] = useState(false);
-    const [tagNew, setTagNew] = useState({color: '', name: ''});
+    const [tagNew, setTagNew] = useState({tagid: nanoid(), color: '', name: ''});
 
     //https://stackoverflow.com/a/58429784
     const tags = [...new Map(notes.map(note =>
@@ -20,11 +20,11 @@ function AddTag({notes, showAddTag, addTag}) {
     }
 
     const handleTagName = (event) => {
-        setTagNew({color: tagNew.color, name: event.target.value});
+        setTagNew({tagid: tagNew.tagid, color: tagNew.color, name: event.target.value});
     }
 
     const handleTagColor = (color) => {
-        setTagNew({color: color, name: tagNew.name});
+        setTagNew({tagid: tagNew.tagid, color: color, name: tagNew.name});
     }
 
     const detectEnter = (event) => {

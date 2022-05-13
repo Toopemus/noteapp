@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import Calendar from './Calendar';
 import AddTag from './AddTag';
 
-function AddNote({handleAddNote, notes}) {
+function AddNote({handleAddNote, notes, toggleAddNote}) {
     const [header, setHeader] = useState('');
     const [text, setText] = useState('');
     const [reminder, setReminder] = useState('');
-    const [tag, setTag] = useState({color: '', name: ''});
+    const [tag, setTag] = useState({tagid: '', color: '', name: ''});
     const [showCal, setShowCal] = useState(false);
     const [showTag, setShowTag] = useState(false);
 
@@ -28,7 +28,8 @@ function AddNote({handleAddNote, notes}) {
             setHeader('');
             setText('');
             setReminder('');
-            setTag({color: '', name: ''});
+            setTag({tagid: '', color: '', name: ''});
+            toggleAddNote();
         }
     };
 
@@ -55,6 +56,7 @@ function AddNote({handleAddNote, notes}) {
             <div className='addupper'>
                 <div className='addheader'>
                     <textarea
+                        className='notetitle'
                         rows='1'
                         placeholder='Otsikko...'
                         value={header}
